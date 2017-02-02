@@ -36,7 +36,7 @@ export function transformAndValidate<T extends Object>(classType: ClassType<T>, 
         } else if (typeof objectOrString === "object") {
             object = objectOrString;
         } else {
-            return reject("Incorrect object param type! Only strings and plain objects are valid.");
+            return reject(new Error("Incorrect object param type! Only strings and plain objects are valid."));
         }
 
         const classObject = plainToClass(classType, object, options ? options.transformer : undefined);

@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "declaration": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "./build",
+        "rootDir": "./src",
+        "sourceMap": true,
+        "target": "es6",
+        "strictNullChecks": true,
+        "suppressImplicitAnyIndexErrors": false,
+        "removeComments": true,
+        "watch": false
+    },
+    "exclude": [
+        "node_modules",
+        "build"
+    ]
+}

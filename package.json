@@ -1,6 +1,6 @@
 {
   "name": "class-transformer-validator",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A simple wrapper around class-transformer and class-validator which provides nice and programmer-friendly API.",
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -19,7 +19,19 @@
     "class-validator",
     "validator",
     "validation",
+    "typescript-validator",
+    "class-transformer",
+    "serialization",
+    "deserialization",
+    "serializer",
     "typescript",
+    "object-to-class",
+    "typescript-serializer"
+  ],
+  "keywords": [
+    "class-validator",
+    "validator",
+    "validation",
     "typescript-validator",
     "class-transformer",
     "serialization",
@@ -38,7 +50,7 @@
     "class-transformer": "^0.1.6",
     "class-validator": "^0.6.8",
     "mocha": "^3.2.0",
-    "typescript": "^2.1.5"
+    "typescript": "^2.2.1"
   },
   "peerDependencies": {
     "class-validator": "^0.6.8",
@@ -49,5 +61,6 @@
     "pretest": "npm run build",
     "test": "mocha build/tests/index.js",
     "build": "tsc"
-  }
+  },
+  "private": true
 }

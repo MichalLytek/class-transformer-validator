@@ -68,11 +68,11 @@ async (req, res) => {
 
 There is available one function with two overloads:
 ```typescript
-function transformAndValidate<T extends PlainObject>(classType: ClassType<T>, jsonString: string, options?: TransformValdiationOptions): Promise<T>;
+function transformAndValidate<T extends object>(classType: ClassType<T>, jsonString: string, options?: TransformValdiationOptions): Promise<T>;
 ```
 
 ```typescript
-function transformAndValidate<T extends PlainObject>(classType: ClassType<T>, object: PlainObject, options?: TransformValdiationOptions): Promise<T>;
+function transformAndValidate<T extends object>(classType: ClassType<T>, object: object, options?: TransformValdiationOptions): Promise<T>;
 ```
 
 #### Parameters and types
@@ -85,12 +85,7 @@ type ClassType<T> = {
 ```
 - `jsonString` - a normal string containing JSON
 
-- `object` - plain JS object with some properties (not empty - `{}`). `PlainObject` is a defined as normal JS object type but with some properties defined, to provide compile-time error when e.g. number is passed as parameter:
-```typescript
-type PlainObject = {
-    [property: string]: any;
-}
-```
+- `object` - plain JS object of type `object` (introduced in TypeScript 2.1), you will have compile-time error while trying to pass number, boolean, null or undefined but unfortunately run-time error when passing a function or an array
 
 - `options` - optional options object, it has two optional properties
 ```typescript
@@ -104,3 +99,18 @@ You can use it to pass options for `class-validator` ([more info](https://github
 ## More info
 
 The [class-transformer](https://github.com/pleerock/class-transformer) and [class-validator](https://github.com/pleerock/class-validator) are more powerfull than it was showed in the simple usage sample, so go to their github page and check out they capabilities!
+
+## Release notes
+
+**0.2.0**
+
+* changed object parameter type declaration to `object` (introduced in TS 2.2)
+* throwing error when passed array, undefined or null
+
+**0.1.1**
+
+* changed throwing error (rejecting promise) [from string to `Error` with message](https://github.com/19majkel94/class-transformer-validator/commit/e0ed33f9f8feb58d52bfdbc78f8150cdfd0ebe77#diff-f41e9d04a45c83f3b6f6e630f10117feR39)
+
+**0.1.0**
+
+* initial version with `transformAndValidate` function

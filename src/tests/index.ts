@@ -1,11 +1,9 @@
 import { ValidationError, IsEmail } from 'class-validator';
 import { transformAndValidate } from "../index";
 
-import { expect } from "chai";
-import * as chai from "chai";
+import { expect, use } from "chai";
 import * as chaiAsPromised from "chai-as-promised";
-chai.use(chaiAsPromised);
-
+use(chaiAsPromised);
 
 class User {
     @IsEmail()
@@ -42,6 +40,16 @@ describe("transformAndValidate()", () => {
         expect(transformedUser.greet()).to.equals("Greeting");
     });
 
+    it("should throw ValidationError array when object property is not passing validation", async () => {
+        const user = {
+            email: "test@test"
+        } as User;
+
+        const error = await expect(transformAndValidate(User, user)).to.be.rejected;
+        expect(error).to.have.lengthOf(1);
+        expect(error[0]).to.be.instanceOf(ValidationError);
+    });
+
     it("should throw SyntaxError while parsing invalid JSON string", async () => {
         const userJson = JSON.stringify(user) + "error";
 
@@ -63,19 +71,27 @@ describe("transformAndValidate()", () => {
         expect(error.message).to.equals(rejectMessage);
     });
 
+    it("should throw Error when object parameter is an array", async () => {
+        const error: Error = await expect(transformAndValidate(User, [])).to.be.rejected;
+        expect(error).to.exist;
+        expect(error.message).to.equals(rejectMessage);
+    });
+
     it("should throw Error when object parameter is a boolean value", async () => {
         const error: Error = await expect(transformAndValidate(User, true as any)).to.be.rejected;
         expect(error).to.exist;
         expect(error.message).to.equals(rejectMessage);
     });
 
-    it("should throw ValidationError array when object property is not passing validation", async () => {
-        const user = {
-            email: "test@test"
-        } as User;
+    it("should throw Error when object parameter is a null", async () => {
+        const error: Error = await expect(transformAndValidate(User, null as any)).to.be.rejected;
+        expect(error).to.exist;
+        expect(error.message).to.equals(rejectMessage);
+    });
 
-        const error = await expect(transformAndValidate(User, user)).to.be.rejected;
-        expect(error).to.have.lengthOf(1);
-        expect(error[0]).to.be.instanceOf(ValidationError);
+    it("should throw Error when object parameter is an undefined", async () => {
+        const error: Error = await expect(transformAndValidate(User, void 0 as any)).to.be.rejected;
+        expect(error).to.exist;
+        expect(error.message).to.equals(rejectMessage);
     });
 });

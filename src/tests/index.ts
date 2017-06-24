@@ -24,17 +24,19 @@ describe("transformAndValidate()", () => {
         } as User;
     });
 
-    it("should successfully transform and validate user plain object", async () => {
-        const transformedUser = await transformAndValidate(User, user);
+    it("should successfully transform and validate User plain object", async () => {
+        const transformedUser: User = await transformAndValidate(User, user);
+
         expect(transformedUser).to.exist;
         expect(transformedUser.email).to.equals("test@test.com");
         expect(transformedUser.greet()).to.equals("Greeting");
     });
 
-    it("should successfully transform and validate user JSON", async () => {
-        const userJson = JSON.stringify(user);
+    it("should successfully transform and validate User JSON", async () => {
+        const userJson: string = JSON.stringify(user);
 
-        const transformedUser = await transformAndValidate(User, userJson);
+        const transformedUser: User = await transformAndValidate(User, userJson);
+
         expect(transformedUser).to.exist;
         expect(transformedUser.email).to.equals("test@test.com");
         expect(transformedUser.greet()).to.equals("Greeting");
@@ -45,7 +47,20 @@ describe("transformAndValidate()", () => {
             email: "test@test"
         } as User;
 
-        const error = await expect(transformAndValidate(User, user)).to.be.rejected;
+        const error: ValidationError[] = await expect(transformAndValidate(User, user)).to.be.rejected;
+
+        expect(error).to.have.lengthOf(1);
+        expect(error[0]).to.be.instanceOf(ValidationError);
+    });
+
+    it("should throw ValidationError array when json's property is not passing validation", async () => {
+        const user = {
+            email: "test@test"
+        } as User;
+        const userJson: string = JSON.stringify(user);
+
+        const error: ValidationError[] = await expect(transformAndValidate(User, userJson)).to.be.rejected;
+
         expect(error).to.have.lengthOf(1);
         expect(error[0]).to.be.instanceOf(ValidationError);
     });
@@ -53,12 +68,14 @@ describe("transformAndValidate()", () => {
     it("should throw SyntaxError while parsing invalid JSON string", async () => {
         const userJson = JSON.stringify(user) + "error";
 
-        const error = await expect(transformAndValidate(User, userJson)).to.be.rejected;
+        const error: SyntaxError = await expect(transformAndValidate(User, userJson)).to.be.rejected;
+
         expect(error).to.be.instanceOf(SyntaxError);
     });
 
     it("should throw Error when object parameter is a number", async () => {
         const error: Error = await expect(transformAndValidate(User, 2 as any)).to.be.rejected;
+
         expect(error).to.exist;
         expect(error.message).to.equals(rejectMessage);
     });
@@ -79,18 +96,21 @@ describe("transformAndValidate()", () => {
 
     it("should throw Error when object parameter is a boolean value", async () => {
         const error: Error = await expect(transformAndValidate(User, true as any)).to.be.rejected;
+
         expect(error).to.exist;
         expect(error.message).to.equals(rejectMessage);
     });
 
     it("should throw Error when object parameter is a null", async () => {
         const error: Error = await expect(transformAndValidate(User, null as any)).to.be.rejected;
+
         expect(error).to.exist;
         expect(error.message).to.equals(rejectMessage);
     });
 
     it("should throw Error when object parameter is an undefined", async () => {
         const error: Error = await expect(transformAndValidate(User, void 0 as any)).to.be.rejected;
+
         expect(error).to.exist;
         expect(error.message).to.equals(rejectMessage);
     });

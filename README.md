@@ -8,6 +8,10 @@ A simple plugin for [class-transformer](https://github.com/pleerock/class-transf
 
 `npm install class-transformer-validator --save`
 
+(or the short way):
+
+`npm i -S class-transformer-validator`
+
 #### Peer dependencies
 
 This package is only a simple plugin/wrapper, so you have to install the required modules too because it can't work without them. See detailed installation instruction for the modules installation:
@@ -19,7 +23,7 @@ This package is only a simple plugin/wrapper, so you have to install the require
 
 The usage of this module is very simple.
 
-```typescript
+```ts
 import { IsEmail } from 'class-validator';
 import { transformAndValidate } from "class-transformer-validator";
 
@@ -49,7 +53,7 @@ transformAndValidate(User, userJson)
     });
 ```
 You can also transform and validate plain JS object (e.g. from express req.body). Using ES7 async/await syntax:
-```typescript
+```ts
 async (req, res) => {
     try {
         // transform and validate request body
@@ -61,34 +65,52 @@ async (req, res) => {
     }
 }
 ```
+And since release `0.3.0` you can also pass array of objects - all of them will be validated using given class validation constraints:
+```ts
+async (req, res) => {
+    try {
+        // transform and validate request body - array of User objects
+        const userObjects = await transformAndValidate(User, req.body);
+        userObjects.forEach(user => console.log(`Hello ${user.hello()}`));
+    } catch (error) {
+        // your error handling
+    }
+}
+```
 
 ## API reference
 
 #### Function signatures
 
-There is available one function with two overloads:
-```typescript
+There is available one function with three overloads:
+```ts
 function transformAndValidate<T extends object>(classType: ClassType<T>, jsonString: string, options?: TransformValdiationOptions): Promise<T>;
 ```
 
-```typescript
+```ts
 function transformAndValidate<T extends object>(classType: ClassType<T>, object: object, options?: TransformValdiationOptions): Promise<T>;
+```
+
+```ts
+function transformAndValidate<T extends object>(classType: ClassType<T>, array: object[], options?: TransformValdiationOptions): Promise<T[]>;
 ```
 
 #### Parameters and types
 
 - `classType` - an class symbol, a constructor function which can be called with `new`
-```typescript
+```ts
 type ClassType<T> = { 
     new (...args: any[]): T;
 }
 ```
 - `jsonString` - a normal string containing JSON
 
-- `object` - plain JS object of type `object` (introduced in TypeScript 2.1), you will have compile-time error while trying to pass number, boolean, null or undefined but unfortunately run-time error when passing a function or an array
+- `object` - plain JS object of type `object` (introduced in TypeScript 2.2), you will have compile-time error while trying to pass number, boolean, null or undefined but unfortunately run-time error when passing a function
+
+- `array` - array of plain JS objects like described above
 
 - `options` - optional options object, it has two optional properties
-```typescript
+```ts
 interface TransformValdiationOptions {
     validator?: ValidatorOptions;
     transformer?: ClassTransformOptions;
@@ -101,6 +123,11 @@ You can use it to pass options for `class-validator` ([more info](https://github
 The [class-transformer](https://github.com/pleerock/class-transformer) and [class-validator](https://github.com/pleerock/class-validator) are more powerfull than it was showed in the simple usage sample, so go to their github page and check out they capabilities!
 
 ## Release notes
+
+**0.3.0**
+
+* added support for transform and validate array of objects given class
+* bumped `class-validator` dependency to `^0.7.1`
 
 **0.2.0**
 

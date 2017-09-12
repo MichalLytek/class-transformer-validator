@@ -20,7 +20,7 @@ describe("transformAndValidate()", () => {
 
     beforeEach(() => {
         user = {
-            email: "test@test.com"
+            email: "test@test.com",
         } as User;
     });
 
@@ -58,21 +58,21 @@ describe("transformAndValidate()", () => {
     });
 
     it("should throw ValidationError array when object property is not passing validation", async () => {
-        const user = {
-            email: "test@test"
+        const sampleUuser = {
+            email: "test@test",
         } as User;
 
-        const error: ValidationError[] = await expect(transformAndValidate(User, user)).to.be.rejected;
+        const error: ValidationError[] = await expect(transformAndValidate(User, sampleUuser)).to.be.rejected;
 
         expect(error).to.have.lengthOf(1);
         expect(error[0]).to.be.instanceOf(ValidationError);
     });
 
     it("should throw ValidationError array when json's property is not passing validation", async () => {
-        const user = {
-            email: "test@test"
+        const sampleUuser = {
+            email: "test@test",
         } as User;
-        const userJson: string = JSON.stringify(user);
+        const userJson: string = JSON.stringify(sampleUuser);
 
         const error: ValidationError[] = await expect(transformAndValidate(User, userJson)).to.be.rejected;
 
@@ -81,13 +81,13 @@ describe("transformAndValidate()", () => {
     });
 
     it("should throw array of ValidationError arrays when properties of objects from array are not passing validation", async () => {
-        const user = {
-            email: "test@test"
+        const sampleUuser = {
+            email: "test@test",
         } as User;
         const users = [
-            user,
-            user,
-            user,
+            sampleUuser,
+            sampleUuser,
+            sampleUuser,
         ];
         
         const error: ValidationError[][] = await expect(transformAndValidate(User, users)).to.be.rejected;

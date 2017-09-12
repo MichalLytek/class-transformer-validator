@@ -50,6 +50,7 @@
     "class-transformer": "^0.1.6",
     "class-validator": "^0.6.8",
     "mocha": "^3.2.0",
+    "tslint": "^5.7.0",
     "typescript": "^2.3.4"
   },
   "peerDependencies": {

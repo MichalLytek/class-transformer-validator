@@ -87,9 +87,9 @@ async (req, res) => {
 
 #### Function signatures
 
-There is available one function with three overloads:
+There is available the `transformAndValidate` function with three overloads:
 ```ts
-function transformAndValidate<T extends object>(classType: ClassType<T>, jsonString: string, options?: TransformValdiationOptions): Promise<T>;
+function transformAndValidate<T extends object>(classType: ClassType<T>, jsonString: string, options?: TransformValdiationOptions): Promise<T|T[]>;
 ```
 
 ```ts
@@ -99,6 +99,14 @@ function transformAndValidate<T extends object>(classType: ClassType<T>, object:
 ```ts
 function transformAndValidate<T extends object>(classType: ClassType<T>, array: object[], options?: TransformValdiationOptions): Promise<T[]>;
 ```
+
+If you need sync validation, use `transformAndValidateSync` function instead (since v0.4.0).
+
+Be aware that if you validate json string, the return type is a `Promise` of `T` or `T[]` so you need to assert the returned type if you know the shape of json:
+```ts
+const users = transformAndValidate(User, JSON.stringify([{ email: "test@test.test" }])) as User[];
+```
+Or you can just check in runtime using `Array.isArray(obj)` method.
 
 #### Parameters and types
 
@@ -129,10 +137,16 @@ The [class-transformer](https://github.com/pleerock/class-transformer) and [clas
 
 ## Release notes
 
+**0.4.0**
+
+* added `transformAndValidateSync` function for synchronous validation
+* changed return type for transform and validation JSON to `Promise` of `T` or `T[]`
+* bumped `class-validator` dependency to version `^0.7.2` and `class-transformer` to `^0.1.7`
+
 **0.3.0**
 
 * added support for transform and validate array of objects given class
-* bumped `class-validator` dependency to `^0.7.1`
+* bumped `class-validator` dependency to version `^0.7.1`
 
 **0.2.0**
 

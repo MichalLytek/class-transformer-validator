@@ -42,20 +42,20 @@
     "typescript-serializer"
   ],
   "devDependencies": {
-    "@types/chai": "^3.4.34",
-    "@types/chai-as-promised": "0.0.29",
-    "@types/mocha": "^2.2.38",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "class-transformer": "^0.1.6",
-    "class-validator": "^0.6.8",
-    "mocha": "^3.2.0",
+    "@types/chai": "^4.0.4",
+    "@types/chai-as-promised": "7.1.0",
+    "@types/mocha": "^2.2.43",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "class-transformer": "^0.1.7",
+    "class-validator": "^0.7.2",
+    "mocha": "^3.5.3",
     "tslint": "^5.7.0",
     "typescript": "^2.3.4"
   },
   "peerDependencies": {
-    "class-validator": "^0.7.1",
-    "class-transformer": "^0.1.6"
+    "class-validator": "^0.7.2",
+    "class-transformer": "^0.1.7"
   },
   "main": "index.js",
   "scripts": {

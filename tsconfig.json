@@ -19,7 +19,7 @@
         "target": "es5",
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": false,
-        "removeComments": true,
+        "removeComments": false,
         "watch": false
     },
     "exclude": [

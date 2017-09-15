@@ -32,14 +32,26 @@ describe("transformAndValidate()", () => {
         expect(transformedUser.greet()).to.equals("Greeting");
     });
 
-    it("should successfully transform and validate User JSON", async () => {
+    it("should successfully transform and validate JSON with User object", async () => {
         const userJson: string = JSON.stringify(user);
 
-        const transformedUser: User = await transformAndValidate(User, userJson);
+        const transformedUser = await transformAndValidate(User, userJson) as User;
 
         expect(transformedUser).to.exist;
         expect(transformedUser.email).to.equals("test@test.com");
         expect(transformedUser.greet()).to.equals("Greeting");
+    });
+
+    it("should successfully transform and validate JSON with array of Users", async () => {
+        const userJson: string = JSON.stringify([user]);
+
+        const transformedUsers = await transformAndValidate(User, userJson) as User[];
+
+        expect(transformedUsers).to.exist;
+        expect(transformedUsers).to.be.an.instanceof(Array);
+        expect(transformedUsers).to.have.lengthOf(1);
+        expect(transformedUsers[0].email).to.equals("test@test.com");
+        expect(transformedUsers[0].greet()).to.equals("Greeting");
     });
 
     it("should successfully transform and validate array of User objects", async () => {
@@ -161,14 +173,26 @@ describe("transformAndValidateSync()", () => {
         expect(transformedUser.greet()).to.equals("Greeting");
     });
 
-    it("should successfully transform and validate User JSON", async () => {
+    it("should successfully transform and validate JSON with User object", async () => {
         const userJson: string = JSON.stringify(user);
 
-        const transformedUser: User = transformAndValidateSync(User, userJson);
+        const transformedUser = transformAndValidateSync(User, userJson) as User;
 
         expect(transformedUser).to.exist;
         expect(transformedUser.email).to.equals("test@test.com");
         expect(transformedUser.greet()).to.equals("Greeting");
+    });
+
+    it("should successfully transform and validate JSON with array of Users", async () => {
+        const userJson: string = JSON.stringify([user]);
+
+        const transformedUsers = transformAndValidateSync(User, userJson) as User[];
+
+        expect(transformedUsers).to.exist;
+        expect(transformedUsers).to.be.an.instanceof(Array);
+        expect(transformedUsers).to.have.lengthOf(1);
+        expect(transformedUsers[0].email).to.equals("test@test.com");
+        expect(transformedUsers[0].greet()).to.equals("Greeting");
     });
 
     it("should successfully transform and validate array of User objects", async () => {

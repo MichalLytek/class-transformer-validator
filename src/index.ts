@@ -17,9 +17,9 @@ export interface TransformValdiationOptions {
  * @param {ClassType<T>} classType The Class to parse and convert JSON to
  * @param {string} jsonString The string containing JSON
  * @param {TransformValdiationOptions} [options] Optional options object for class-validator and class-transformer
- * @returns {Promise<T>} Promise of object of given class T
+ * @returns {Promise<T|T[]>} Promise of object of given class T or array of objects given class T
  */
-export function transformAndValidate<T extends object>(classType: ClassType<T>, jsonString: string, options?: TransformValdiationOptions): Promise<T>;
+export function transformAndValidate<T extends object>(classType: ClassType<T>, jsonString: string, options?: TransformValdiationOptions): Promise<T|T[]>;
 /**
  * Asynchronously converts array of plain objects to array of class (constructor) objects.
  * Reject the promise if any of the objects in array doesn't pass validation.
@@ -71,9 +71,9 @@ export function transformAndValidate<T extends object>(classType: ClassType<T>, 
  * @param {ClassType<T>} classType The Class to parse and convert JSON to
  * @param {string} jsonString The string containing JSON
  * @param {TransformValdiationOptions} [options] Optional options object for class-validator and class-transformer
- * @returns {T} Object of given class T
+ * @returns {T|T[]} Object of given class T or array of objects given class T
  */
-export function transformAndValidateSync<T extends object>(classType: ClassType<T>, jsonString: string, options?: TransformValdiationOptions): T;
+export function transformAndValidateSync<T extends object>(classType: ClassType<T>, jsonString: string, options?: TransformValdiationOptions): T|T[];
 /**
  * Synchronously converts array of plain objects to array of class (constructor) objects.
  * Throws error if any of the objects in array doesn't pass validation.

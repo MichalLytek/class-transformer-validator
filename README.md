@@ -63,7 +63,7 @@ async (req, res) => {
     try {
         // transform and validate request body
         const userObject = await transformAndValidate(User, req.body);
-        // intered type of userObject is User, you can access all class prototype properties and methods
+        // infered type of userObject is User, you can access all class prototype properties and methods
     } catch (error) {
         // your error handling
         console.err(error);
@@ -100,13 +100,15 @@ function transformAndValidate<T extends object>(classType: ClassType<T>, object:
 function transformAndValidate<T extends object>(classType: ClassType<T>, array: object[], options?: TransformValdiationOptions): Promise<T[]>;
 ```
 
-If you need sync validation, use `transformAndValidateSync` function instead (since v0.4.0).
-
 Be aware that if you validate json string, the return type is a `Promise` of `T` or `T[]` so you need to assert the returned type if you know the shape of json:
 ```ts
-const users = transformAndValidate(User, JSON.stringify([{ email: "test@test.test" }])) as User[];
+const users = await transformAndValidate(User, JSON.stringify([{ email: "test@test.test" }])) as User[];
 ```
-Or you can just check in runtime using `Array.isArray(obj)` method.
+Or you can just check the type in runtime using `Array.isArray` method.
+
+#### Synchronous transformation and validation
+
+If you need sync validation, use `transformAndValidateSync` function instead (available since v0.4.0). It will synchronously return `T` or `T[]`, not a Promise.
 
 #### Parameters and types
 
@@ -140,7 +142,7 @@ The [class-transformer](https://github.com/pleerock/class-transformer) and [clas
 **0.4.0**
 
 * added `transformAndValidateSync` function for synchronous validation
-* changed return type for transform and validation JSON to `Promise` of `T` or `T[]`
+* changed return type for JSON's transform and validation to `Promise` of `T` or `T[]`
 * bumped `class-validator` dependency to version `^0.7.2` and `class-transformer` to `^0.1.7`
 
 **0.3.0**

@@ -89,15 +89,15 @@ async (req, res) => {
 
 There is available the `transformAndValidate` function with three overloads:
 ```ts
-function transformAndValidate<T extends object>(classType: ClassType<T>, jsonString: string, options?: TransformValdiationOptions): Promise<T|T[]>;
+function transformAndValidate<T extends object>(classType: ClassType<T>, jsonString: string, options?: TransformValidationOptions): Promise<T|T[]>;
 ```
 
 ```ts
-function transformAndValidate<T extends object>(classType: ClassType<T>, object: object, options?: TransformValdiationOptions): Promise<T>;
+function transformAndValidate<T extends object>(classType: ClassType<T>, object: object, options?: TransformValidationOptions): Promise<T>;
 ```
 
 ```ts
-function transformAndValidate<T extends object>(classType: ClassType<T>, array: object[], options?: TransformValdiationOptions): Promise<T[]>;
+function transformAndValidate<T extends object>(classType: ClassType<T>, array: object[], options?: TransformValidationOptions): Promise<T[]>;
 ```
 
 Be aware that if you validate json string, the return type is a `Promise` of `T` or `T[]` so you need to assert the returned type if you know the shape of json:
@@ -126,7 +126,7 @@ type ClassType<T> = {
 
 - `options` - optional options object, it has two optional properties
 ```ts
-interface TransformValdiationOptions {
+interface TransformValidationOptions {
     validator?: ValidatorOptions;
     transformer?: ClassTransformOptions;
 }
@@ -138,6 +138,9 @@ You can use it to pass options for `class-validator` ([more info](https://github
 The [class-transformer](https://github.com/pleerock/class-transformer) and [class-validator](https://github.com/pleerock/class-validator) are more powerfull than it was showed in the simple usage sample, so go to their github page and check out they capabilities!
 
 ## Release notes
+
+**0.4.1**
+* fix `TransformValdiationOptions` interface name typo (depreacte in favour of `TransformValidationOptions`)
 
 **0.4.0**
 

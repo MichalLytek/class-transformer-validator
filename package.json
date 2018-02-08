@@ -1,12 +1,12 @@
 {
   "name": "class-transformer-validator",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "A simple wrapper around class-transformer and class-validator which provides nice and programmer-friendly API.",
   "license": "MIT",
   "readmeFilename": "README.md",
   "author": {
     "name": "Michał Lytek",
-    "email": "michal.ly@wp.pl"
+    "url": "https://github.com/19majkel94"
   },
   "repository": {
     "type": "git",

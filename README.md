@@ -139,19 +139,23 @@ The [class-transformer](https://github.com/pleerock/class-transformer) and [clas
 
 ## Release notes
 
+**0.5.0**
+* remove deprecated `TransformValdiationOptions` interface (typo)
+* updated `class-validator` dependency to version `^0.8.1` and `class-transformer` to `^0.1.9`
+
 **0.4.1**
-* fix `TransformValdiationOptions` interface name typo (depreacte in favour of `TransformValidationOptions`)
+* fix `TransformValdiationOptions` interface name typo (deprecate in favour of `TransformValidationOptions`)
 
 **0.4.0**
 
 * added `transformAndValidateSync` function for synchronous validation
 * changed return type for JSON's transform and validation to `Promise` of `T` or `T[]`
-* bumped `class-validator` dependency to version `^0.7.2` and `class-transformer` to `^0.1.7`
+* updated `class-validator` dependency to version `^0.7.2` and `class-transformer` to `^0.1.7`
 
 **0.3.0**
 
 * added support for transform and validate array of objects given class
-* bumped `class-validator` dependency to version `^0.7.1`
+* updated `class-validator` dependency to version `^0.7.1`
 
 **0.2.0**
 

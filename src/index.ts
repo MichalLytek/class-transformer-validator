@@ -10,8 +10,6 @@ export interface TransformValidationOptions {
     transformer?: ClassTransformOptions;
 }
 
-export { TransformValidationOptions as TransformValdiationOptions };
-
 /**
  * Asynchronously converts JSON string to class (constructor) object.
  * Reject the promise if the object parsed from string doesn't pass validation.

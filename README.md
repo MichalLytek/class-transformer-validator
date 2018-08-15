@@ -139,6 +139,9 @@ The [class-transformer](https://github.com/pleerock/class-transformer) and [clas
 
 ## Release notes
 
+**0.6.0**
+* updated `class-validator` dependency to version `^0.9.1`
+
 **0.5.0**
 * remove deprecated `TransformValdiationOptions` interface (typo)
 * updated `class-validator` dependency to version `^0.8.1` and `class-transformer` to `^0.1.9`

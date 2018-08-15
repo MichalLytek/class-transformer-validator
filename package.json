@@ -1,6 +1,6 @@
 {
   "name": "class-transformer-validator",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A simple wrapper around class-transformer and class-validator which provides nice and programmer-friendly API.",
   "license": "MIT",
   "readmeFilename": "README.md",

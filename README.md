@@ -139,6 +139,9 @@ The [class-transformer](https://github.com/pleerock/class-transformer) and [clas
 
 ## Release notes
 
+**0.7.0**
+* updated `class-transformer` dependency to version `^0.2.0`
+
 **0.6.0**
 * updated `class-validator` dependency to version `^0.9.1`
 

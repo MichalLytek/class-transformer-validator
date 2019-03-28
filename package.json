@@ -1,6 +1,6 @@
 {
   "name": "class-transformer-validator",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "A simple wrapper around class-transformer and class-validator which provides nice and programmer-friendly API.",
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -54,7 +54,7 @@
     "typescript": "~2.3.4"
   },
   "peerDependencies": {
-    "class-transformer": "^0.1.9",
+    "class-transformer": "^0.2.0",
     "class-validator": "^0.9.1"
   },
   "main": "index.js",

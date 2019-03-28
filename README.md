@@ -139,7 +139,7 @@ The [class-transformer](https://github.com/pleerock/class-transformer) and [clas
 
 ## Release notes
 
-**0.7.0**
+**0.7.1**
 * updated `class-transformer` dependency to version `^0.2.0`
 
 **0.6.0**

@@ -51,10 +51,10 @@ transformAndValidate(User, userJson)
         // now you can access all your class prototype method
         console.log(`Hello ${userObject.hello()}`); // prints "Hello World!" on console
     })
-    .catch(error => {
+    .catch(err => {
         // here you can handle error on transformation (invalid JSON)
         // or validation error (e.g. invalid email property)
-        console.err(error);
+        console.error(err);
     });
 ```
 You can also transform and validate plain JS object (e.g. from express req.body). Using ES7 async/await syntax:
@@ -64,9 +64,9 @@ async (req, res) => {
         // transform and validate request body
         const userObject = await transformAndValidate(User, req.body);
         // infered type of userObject is User, you can access all class prototype properties and methods
-    } catch (error) {
+    } catch (err) {
         // your error handling
-        console.err(error);
+        console.error(err);
     }
 }
 ```
@@ -77,7 +77,7 @@ async (req, res) => {
         // transform and validate request body - array of User objects
         const userObjects = await transformAndValidate(User, req.body);
         userObjects.forEach(user => console.log(`Hello ${user.hello()}`));
-    } catch (error) {
+    } catch (err) {
         // your error handling
     }
 }

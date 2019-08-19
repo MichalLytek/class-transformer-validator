@@ -55,7 +55,7 @@
   },
   "peerDependencies": {
     "class-transformer": "^0.2.0",
-    "class-validator": "^0.9.1"
+    "class-validator": "^0.9.1 || ^0.10"
   },
   "main": "index.js",
   "scripts": {

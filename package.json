@@ -1,19 +1,58 @@
 {
   "name": "class-transformer-validator",
   "version": "0.8.0",
-  "description": "A simple wrapper around class-transformer and class-validator which provides nice and programmer-friendly API.",
-  "license": "MIT",
-  "readmeFilename": "README.md",
+  "scripts": {
+    "pretest": "npm run build",
+    "test": "mocha build/tests/index.js",
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.10.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.3",
+    "@types/chai-as-promised": "^7.1.2",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.10.1",
+    "husky": "^3.0.8",
+    "lint-staged": "^9.4.1",
+    "mocha": "^6.2.1",
+    "prettier": "^1.18.2",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.6.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src}/**/*.ts": [
+      "tslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
   "author": {
     "name": "Michał Lytek",
-    "url": "https://github.com/19majkel94"
+    "url": "https://github.com/MichalLytek"
   },
+  "description": "A simple wrapper around class-transformer and class-validator which provides nice and programmer-friendly API.",
+  "readmeFilename": "README.md",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/19majkel94/class-transformer-validator.git"
+    "url": "https://github.com/MichalLytek/class-transformer-validator.git"
   },
   "bugs": {
-    "url": "https://github.com/19majkel94/class-transformer-validator/issues"
+    "url": "https://github.com/MichalLytek/class-transformer-validator/issues"
   },
   "tags": [
     "class-validator",
@@ -41,27 +80,5 @@
     "object-to-class",
     "typescript-serializer"
   ],
-  "devDependencies": {
-    "@types/chai": "^4.2.3",
-    "@types/chai-as-promised": "^7.1.2",
-    "@types/mocha": "^5.2.7",
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
-    "class-transformer": "^0.2.3",
-    "class-validator": "^0.10.1",
-    "mocha": "^6.2.1",
-    "tslint": "^5.20.0",
-    "typescript": "^3.6.3"
-  },
-  "peerDependencies": {
-    "class-transformer": "^0.2.3",
-    "class-validator": "^0.10.1"
-  },
-  "main": "index.js",
-  "scripts": {
-    "pretest": "npm run build",
-    "test": "mocha build/tests/index.js",
-    "build": "tsc"
-  },
   "private": true
 }

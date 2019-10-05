@@ -139,6 +139,14 @@ The [class-transformer](https://github.com/pleerock/class-transformer) and [clas
 
 ## Release notes
 
+**0.8.0**
+
+* updated `class-transformer` dependency to version `^0.2.3`
+* updated `class-validator` dependency to version `^0.10.1`
+* updated TypeScript dependency to version `^3.6.3`
+* built code is now emitted as ES2015 (dropped es5 support)
+* updated all dev dependencies
+
 **0.7.1**
 * updated `class-transformer` dependency to version `^0.2.0`
 

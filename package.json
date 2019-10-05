@@ -1,6 +1,6 @@
 {
   "name": "class-transformer-validator",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "A simple wrapper around class-transformer and class-validator which provides nice and programmer-friendly API.",
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -42,20 +42,20 @@
     "typescript-serializer"
   ],
   "devDependencies": {
-    "@types/chai": "^4.1.4",
-    "@types/chai-as-promised": "7.1.0",
-    "@types/mocha": "^5.2.5",
-    "chai": "^4.1.2",
+    "@types/chai": "^4.2.3",
+    "@types/chai-as-promised": "^7.1.2",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "class-transformer": "^0.2.0",
-    "class-validator": "^0.9.1",
-    "mocha": "^5.2.0",
-    "tslint": "^5.11.0",
-    "typescript": "~2.3.4"
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.10.1",
+    "mocha": "^6.2.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
   },
   "peerDependencies": {
-    "class-transformer": "^0.2.0",
-    "class-validator": "^0.9.1"
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.10.1"
   },
   "main": "index.js",
   "scripts": {

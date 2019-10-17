@@ -1,6 +1,6 @@
 {
   "name": "class-transformer-validator-light",
-  "version": "0.8.0",
+  "version": "0.0.1",
   "scripts": {
     "pretest": "npm run build",
     "test": "mocha build/tests/index.js",
@@ -46,7 +46,7 @@
   },
   "description": "A simple wrapper around class-transformer and class-validator-light which provides nice and programmer-friendly API.",
   "readmeFilename": "README.md",
-  "license": "Beerware",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/servrox/class-transformer-validator-light.git"

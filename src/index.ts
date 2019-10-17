@@ -3,7 +3,7 @@ import {
   validateSync,
   validateOrReject,
   ValidatorOptions,
-} from "class-validator";
+} from "@servrox/class-validator-light";
 import { plainToClass, ClassTransformOptions } from "class-transformer";
 
 export type ClassType<T> = new (...args: any[]) => T;

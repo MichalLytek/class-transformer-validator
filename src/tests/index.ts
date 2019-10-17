@@ -1,4 +1,4 @@
-import { ValidationError, IsEmail } from "class-validator";
+import { ValidationError, IsEmail } from "@servrox/class-validator-light";
 import { expect, use } from "chai";
 import chaiAsPromised from "chai-as-promised";
 use(chaiAsPromised);

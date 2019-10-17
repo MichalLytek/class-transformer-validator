@@ -1,5 +1,5 @@
 {
-  "name": "class-transformer-validator",
+  "name": "class-transformer-validator-light",
   "version": "0.8.0",
   "scripts": {
     "pretest": "npm run build",
@@ -8,7 +8,7 @@
   },
   "peerDependencies": {
     "class-transformer": "^0.2.3",
-    "class-validator": "^0.10.1"
+    "@servrox/class-validator-light": "^0.10.1"
   },
   "devDependencies": {
     "@types/chai": "^4.2.3",
@@ -41,18 +41,18 @@
   "main": "index.js",
   "types": "index.d.ts",
   "author": {
-    "name": "Michał Lytek",
-    "url": "https://github.com/MichalLytek"
+    "name": "Marcel Mayer",
+    "email": "servrox@live.com"
   },
-  "description": "A simple wrapper around class-transformer and class-validator which provides nice and programmer-friendly API.",
+  "description": "A simple wrapper around class-transformer and class-validator-light which provides nice and programmer-friendly API.",
   "readmeFilename": "README.md",
-  "license": "MIT",
+  "license": "Beerware",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MichalLytek/class-transformer-validator.git"
+    "url": "https://github.com/servrox/class-transformer-validator-light.git"
   },
   "bugs": {
-    "url": "https://github.com/MichalLytek/class-transformer-validator/issues"
+    "url": "https://github.com/servrox/class-transformer-validator-light/issues"
   },
   "tags": [
     "class-validator",
@@ -65,7 +65,12 @@
     "serializer",
     "typescript",
     "object-to-class",
-    "typescript-serializer"
+    "typescript-serializer",
+    "google-libphonenumber",
+    "no-google-libphonenumber",
+    "without-google-libphonenumber",
+    "validator-light",
+    "class-validator-light"
   ],
   "keywords": [
     "class-validator",
@@ -78,7 +83,12 @@
     "serializer",
     "typescript",
     "object-to-class",
-    "typescript-serializer"
+    "typescript-serializer",
+    "google-libphonenumber",
+    "no-google-libphonenumber",
+    "without-google-libphonenumber",
+    "validator-light",
+    "class-validator-light"
   ],
   "private": true
 }

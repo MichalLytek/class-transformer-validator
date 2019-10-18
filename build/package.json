@@ -90,5 +90,5 @@
     "validator-light",
     "class-validator-light"
   ],
-  "private": true
+  "private": false
 }

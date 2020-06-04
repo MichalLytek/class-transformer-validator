@@ -8,23 +8,23 @@
   },
   "peerDependencies": {
     "class-transformer": "^0.2.3",
-    "class-validator": "^0.10.1"
+    "class-validator": ">=0.12.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.3",
+    "@types/chai": "^4.2.11",
     "@types/chai-as-promised": "^7.1.2",
-    "@types/mocha": "^5.2.7",
+    "@types/mocha": "^7.0.2",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "class-transformer": "^0.2.3",
-    "class-validator": "^0.10.1",
-    "husky": "^3.0.8",
-    "lint-staged": "^9.4.1",
-    "mocha": "^6.2.1",
-    "prettier": "^1.18.2",
-    "tslint": "^5.20.0",
+    "class-validator": "^0.12.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.9",
+    "mocha": "^7.2.0",
+    "prettier": "^2.0.5",
+    "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.6.3"
+    "typescript": "^3.9.5"
   },
   "husky": {
     "hooks": {

@@ -165,7 +165,7 @@ The [class-transformer](https://github.com/pleerock/class-transformer) and [clas
 
 ## Release notes
 
-**unreleased**
+**0.9.0**
 
 - bump `class-validator` peer dependency to version `>=0.12.0`
 - updated TypeScript dependency to version `^3.9.5`

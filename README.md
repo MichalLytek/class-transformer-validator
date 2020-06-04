@@ -1,11 +1,11 @@
 # class-transformer-validator
 
 [![npm version](https://badge.fury.io/js/class-transformer-validator.svg)](https://badge.fury.io/js/class-transformer-validator)
-[![Dependency Status](https://david-dm.org/19majkel94/class-transformer-validator.svg)](https://david-dm.org/19majkel94/class-transformer-validator)
-[![devDependency Status](https://david-dm.org/19majkel94/class-transformer-validator/dev-status.svg)](https://david-dm.org/19majkel94/class-transformer-validator#info=devDependencies)
-[![peerDependency Status](https://david-dm.org/19majkel94/class-transformer-validator/peer-status.svg)](https://david-dm.org/19majkel94/class-transformer-validator#info=devDependencies)
+[![Dependency Status](https://david-dm.org/MichalLytek/class-transformer-validator.svg)](https://david-dm.org/MichalLytek/class-transformer-validator)
+[![devDependency Status](https://david-dm.org/MichalLytek/class-transformer-validator/dev-status.svg)](https://david-dm.org/MichalLytek/class-transformer-validator#info=devDependencies)
+[![peerDependency Status](https://david-dm.org/MichalLytek/class-transformer-validator/peer-status.svg)](https://david-dm.org/MichalLytek/class-transformer-validator#info=devDependencies)
 
-A simple plugin for [class-transformer](https://github.com/pleerock/class-transformer) and [class-validator](https://github.com/pleerock/class-validator) which combines them in a nice and programmer-friendly API.
+A simple plugin for [class-transformer](https://github.com/typestack/class-transformer) and [class-validator](https://github.com/typestack/class-validator) which combines them in a nice and programmer-friendly API.
 
 ## Installation
 
@@ -21,8 +21,8 @@ A simple plugin for [class-transformer](https://github.com/pleerock/class-transf
 
 This package is only a simple plugin/wrapper, so you have to install the required modules too because it can't work without them. See detailed installation instruction for the modules installation:
 
-- [class-transformer](https://github.com/pleerock/class-transformer#installation)
-- [class-validator](https://github.com/pleerock/class-validator#installation)
+- [class-transformer](https://github.com/typestack/class-transformer#installation)
+- [class-validator](https://github.com/typestack/class-validator#installation)
 
 ## Usage
 
@@ -214,7 +214,7 @@ The [class-transformer](https://github.com/pleerock/class-transformer) and [clas
 
 **0.1.1**
 
-- changed throwing error (rejecting promise) [from string to `Error` with message](https://github.com/19majkel94/class-transformer-validator/commit/e0ed33f9f8feb58d52bfdbc78f8150cdfd0ebe77#diff-f41e9d04a45c83f3b6f6e630f10117feR39)
+- changed throwing error (rejecting promise) [from string to `Error` with message](https://github.com/MichalLytek/class-transformer-validator/commit/e0ed33f9f8feb58d52bfdbc78f8150cdfd0ebe77#diff-f41e9d04a45c83f3b6f6e630f10117feR39)
 
 **0.1.0**
 

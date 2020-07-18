@@ -5,6 +5,7 @@ import {
   ValidatorOptions,
 } from "class-validator";
 import { plainToClass, ClassTransformOptions } from "class-transformer";
+import { QueueFrontier } from "./QueueFrontier";
 
 export type ClassType<T> = new (...args: any[]) => T;
 
@@ -187,3 +188,35 @@ export function transformAndValidateSync<T extends object>(
     return classObject;
   }
 }
+export const appendErrors = (arr: any[]) => {
+
+  const f = QueueFrontier.of(arr[0]);
+  const errors = [];
+  const settled = new QueueFrontier();
+  while (f.size() > 0) {
+      const c = f.remove();
+      for (const [key, value] of Object.entries(c)) {
+          if (key === 'constraints') {
+              for (const el of Object.values(value as any)) {
+                  errors.push(el);
+              }
+              continue;
+          }
+          if (!isNaN(value as number) || typeof value === 'string') {
+              continue;
+          }
+          if (Object.prototype.toString.call(value) === '[object Array]' && (value as any[]).length > 0) {
+              (value as any[]).forEach(x => f.add(x));
+              continue;
+          }
+          if (!f.inFrontier(key, value) && !settled.inFrontier(key, value)) {
+              f.add({[key]: value});
+          }
+          if (!settled.inFrontier(key, value)) {
+              settled.add({[key]: value});
+          }
+      }
+  }
+  return errors;
+};
+

@@ -73,12 +73,12 @@ describe("transformAndValidate()", () => {
   });
 
   it("should throw ValidationError array when object property is not passing validation", async () => {
-    const sampleUuser = {
+    const sampleUser = {
       email: "test@test",
     } as User;
 
     const error: ValidationError[] = await expect(
-      transformAndValidate(User, sampleUuser),
+      transformAndValidate(User, sampleUser),
     ).to.be.rejected;
 
     expect(error).to.have.lengthOf(1);
@@ -86,10 +86,10 @@ describe("transformAndValidate()", () => {
   });
 
   it("should throw ValidationError array when json's property is not passing validation", async () => {
-    const sampleUuser = {
+    const sampleUser = {
       email: "test@test",
     } as User;
-    const userJson: string = JSON.stringify(sampleUuser);
+    const userJson: string = JSON.stringify(sampleUser);
 
     const error: ValidationError[] = await expect(
       transformAndValidate(User, userJson),
@@ -100,10 +100,10 @@ describe("transformAndValidate()", () => {
   });
 
   it("should throw array of ValidationError arrays when properties of objects from array are not passing validation", async () => {
-    const sampleUuser = {
+    const sampleUser = {
       email: "test@test",
     } as User;
-    const users = [sampleUuser, sampleUuser, sampleUuser];
+    const users = [sampleUser, sampleUser, sampleUser];
 
     const error: ValidationError[][] = await expect(
       transformAndValidate(User, users),
@@ -220,13 +220,13 @@ describe("transformAndValidateSync()", () => {
   });
 
   it("should throw ValidationError array when object property is not passing validation", async () => {
-    const sampleUuser = {
+    const sampleUser = {
       email: "test@test",
     } as User;
 
     try {
-      transformAndValidateSync(User, sampleUuser);
-      throw new Error("error should be throwed");
+      transformAndValidateSync(User, sampleUser);
+      throw new Error("error should be thrown");
     } catch (error) {
       expect(error).to.have.lengthOf(1);
       expect(error[0]).to.be.instanceOf(ValidationError);
@@ -241,7 +241,7 @@ describe("transformAndValidateSync()", () => {
 
     try {
       transformAndValidateSync(User, userJson);
-      throw new Error("error should be throwed");
+      throw new Error("error should be thrown");
     } catch (error) {
       expect(error).to.have.lengthOf(1);
       expect(error[0]).to.be.instanceOf(ValidationError);
@@ -256,7 +256,7 @@ describe("transformAndValidateSync()", () => {
 
     try {
       transformAndValidateSync(User, users);
-      throw new Error("error should be throwed");
+      throw new Error("error should be thrown");
     } catch (error) {
       expect(error).to.have.lengthOf(users.length);
       expect(error[0]).to.have.lengthOf(1);
@@ -269,7 +269,7 @@ describe("transformAndValidateSync()", () => {
 
     try {
       transformAndValidateSync(User, userJson);
-      throw new Error("error should be throwed");
+      throw new Error("error should be thrown");
     } catch (error) {
       expect(error).to.be.instanceOf(SyntaxError);
     }
@@ -278,7 +278,7 @@ describe("transformAndValidateSync()", () => {
   it("should throw Error when object parameter is a number", async () => {
     try {
       transformAndValidateSync(User, 2 as any);
-      throw new Error("error should be throwed");
+      throw new Error("error should be thrown");
     } catch (error) {
       expect(error).to.exist;
       expect(error.message).to.equals(rejectMessage);
@@ -290,7 +290,7 @@ describe("transformAndValidateSync()", () => {
 
     try {
       transformAndValidateSync(User, func);
-      throw new Error("error should be throwed");
+      throw new Error("error should be thrown");
     } catch (error) {
       expect(error).to.exist;
       expect(error.message).to.equals(rejectMessage);
@@ -300,7 +300,7 @@ describe("transformAndValidateSync()", () => {
   it("should throw Error when object parameter is a boolean value", async () => {
     try {
       transformAndValidateSync(User, true as any);
-      throw new Error("error should be throwed");
+      throw new Error("error should be thrown");
     } catch (error) {
       expect(error).to.exist;
       expect(error.message).to.equals(rejectMessage);
@@ -310,7 +310,7 @@ describe("transformAndValidateSync()", () => {
   it("should throw Error when object parameter is a null", async () => {
     try {
       transformAndValidateSync(User, null as any);
-      throw new Error("error should be throwed");
+      throw new Error("error should be thrown");
     } catch (error) {
       expect(error).to.exist;
       expect(error.message).to.equals(rejectMessage);
@@ -320,7 +320,7 @@ describe("transformAndValidateSync()", () => {
   it("should throw Error when object parameter is an undefined", async () => {
     try {
       transformAndValidateSync(User, void 0 as any);
-      throw new Error("error should be throwed");
+      throw new Error("error should be thrown");
     } catch (error) {
       expect(error).to.exist;
       expect(error.message).to.equals(rejectMessage);

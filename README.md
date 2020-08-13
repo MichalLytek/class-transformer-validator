@@ -161,9 +161,14 @@ You can use it to pass options for `class-validator` ([more info](https://github
 
 ## More info
 
-The [class-transformer](https://github.com/pleerock/class-transformer) and [class-validator](https://github.com/pleerock/class-validator) are more powerfull than it was showed in the simple usage sample, so go to their github page and check out they capabilities!
+The [class-transformer](https://github.com/pleerock/class-transformer) and [class-validator](https://github.com/pleerock/class-validator) are more powerful than it was showed in the simple usage sample, so go to their github page and check out they capabilities!
 
 ## Release notes
+
+**0.9.1**
+
+- widen `class-transformer` peer dependency version range to `>=0.2.3`
+- updated all dev dependencies
 
 **0.9.0**
 

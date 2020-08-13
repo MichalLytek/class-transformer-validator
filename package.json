@@ -1,6 +1,6 @@
 {
   "name": "class-transformer-validator",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "scripts": {
     "pretest": "npm run build",
     "test": "mocha build/tests/index.js",

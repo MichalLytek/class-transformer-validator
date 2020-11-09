@@ -6,7 +6,7 @@ import {
 } from "class-validator";
 import { plainToClass, ClassTransformOptions } from "class-transformer";
 
-export type ClassType<T> = new (...args: any[]) => T;
+export type ClassType<T> = {prototype: T};
 
 export interface TransformValidationOptions {
   validator?: ValidatorOptions;

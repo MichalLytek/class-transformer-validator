@@ -4,7 +4,7 @@ import {
   validateOrReject,
   ValidatorOptions,
 } from "class-validator";
-import { plainToClass, ClassTransformOptions } from "class-transformer";
+import { plainToInstance, ClassTransformOptions } from "class-transformer";
 
 export type ClassType<T> = new (...args: any[]) => T;
 
@@ -78,7 +78,7 @@ export function transformAndValidate<T extends object>(
       );
     }
 
-    const classObject = plainToClass(
+    const classObject = plainToInstance(
       classType,
       object,
       options ? options.transformer : void 0,
@@ -163,7 +163,7 @@ export function transformAndValidateSync<T extends object>(
     );
   }
 
-  const classObject = plainToClass(
+  const classObject = plainToInstance(
     classType,
     object,
     options ? options.transformer : void 0,
